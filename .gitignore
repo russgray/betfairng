@@ -1,0 +1,9 @@
+.vagrant
+dist
+env
+build
+betfairng.egg-info
+
+*.pyc
+*.crt
+*.key
