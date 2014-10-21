@@ -3,6 +3,12 @@ try:
 except ImportError:
     from distutils.core import setup
 
+# http://stackoverflow.com/a/22147112
+import os
+if os.environ.get('USER','') == 'vagrant':
+    del os.link
+
+
 import betfairng
 
 with open('README.rst') as f:

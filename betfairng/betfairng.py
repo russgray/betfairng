@@ -62,7 +62,11 @@ class ApiNG(object):
                 data=json.dumps(payload),
                 headers=headers)
 
-        return resp.json()
+        try:
+            return resp.json()
+        except ValueError:
+            print resp.text
+            raise
 
 
 class BettingApi(ApiNG):
