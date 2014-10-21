@@ -3,6 +3,8 @@ dist
 env
 build
 betfairng.egg-info
+27-sdist
+27-wheel
 
 *.pyc
 *.crt
