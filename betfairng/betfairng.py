@@ -127,6 +127,7 @@ class AccountsApi(ApiNG):
 
 if __name__ == "__main__":
     import argparse
+    import sys
     from getpass import getpass
     from pprint import pprint as pp
 
@@ -150,7 +151,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
     password = getpass('Enter password: ')
 
-    r = authenticate((args.cert_file, args.key_file), args.username, password)
+    r = authenticate((args.cert_file, args.key_file), args.username, password, args.verbose)
+    if not 'sessionToken' in r:
+        print "Authentication failure"
+        if args.verbose:
+            print r
+        sys.exit(1)
+
     api = BettingApi(app_key=args.app_key, debuglevel=args.verbose, session_token=r['sessionToken'])
     acc_api = AccountsApi(app_key=args.app_key, debuglevel=args.verbose, session_token=r['sessionToken'])
 
