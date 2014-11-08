@@ -1,6 +1,9 @@
 betfairng: A client library for Betfair API-NG
 ==============================================
 
+.. image:: https://travis-ci.org/russgray/betfairng.svg?branch=master
+    :target: https://travis-ci.org/russgray/betfairng
+
 Betfair API-NG is the next-gen version of the longstanding SOAP-based Betfair API v6. As of November 2014, API-NG will be the only way to programmatically access the Betfair exchange.
 
 API-NG is a REST-based design rather than SOAP, and has improved consistency and convention that make it easier to work with. betfairng makes it easier still, with pythonic naming and sensible defaults.
