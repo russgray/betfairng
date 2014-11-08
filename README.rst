@@ -26,11 +26,7 @@ betfairng also provides a backwards-compatibility layer so you can continue to u
 Installation
 ------------
 
-To install betfairng, simply:
-
-.. code-block:: bash
-
-    $ pip install betfairng
+For now, grab from git.
 
 
 Authentication
