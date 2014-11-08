@@ -1,14 +1,34 @@
 from nose.tools import *
+
+import responses
 import betfairng
-
-# TODO : mock requests http://cramer.io/2014/05/20/mocking-requests-with-responses/
-
+import urllib
 
 def setup():
-    print "SETUP!"
+    pass
 
 def teardown():
-    print "TEAR DOWN!"
+    pass
 
-def test_basic():
-    print "I RAN!"
+@responses.activate
+def test_auth():
+    username = 'username'
+    password = 'password'
+
+    responses.add(responses.POST,
+        'https://identitysso.betfair.com/api/certlogin',
+        body='{"sessionToken": "abc123"}',
+        status=200,
+        content_type='application/json')
+
+    response = betfairng.authenticate(('',''), username, password)
+
+    assert response == {"sessionToken": "abc123"}
+    assert len(responses.calls) == 1
+    assert responses.calls[0].request.headers['X-Application'] == 'python-betfairng'
+
+    body = urllib.urlencode({
+        'username': username,
+        'password': password
+        })
+    assert responses.calls[0].request.body == body
