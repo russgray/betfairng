@@ -2,7 +2,8 @@
 
 # install core packages
 apt-get update
-apt-get install -y vim-nox python python-dev python-virtualenv build-essential curl screen git
+apt-get install -y vim-nox python ruby1.9.3 python-dev python-virtualenv build-essential curl screen git
+gem install travis -v 1.7.3 --no-rdoc --no-ri
 
 # grab rc files for niceness
 curl -s https://gist.githubusercontent.com/alexras/1144546/raw/fda3a9788eec53592fcb14bcfb6e00558436e322/.screenrc -o /home/vagrant/.screenrc
