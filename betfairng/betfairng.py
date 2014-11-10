@@ -65,7 +65,8 @@ class ApiNG(object):
         try:
             return resp.json()
         except ValueError:
-            print resp.text
+            if httplib.HTTPConnection.debuglevel:
+                print resp.text
             raise
 
 
