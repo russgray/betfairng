@@ -1,9 +1,13 @@
 language: python
 python:
-  - "2.7"
-
-# command to install dependencies
-install: "pip install -r requirements.txt"
-
-# command to run tests
+- '2.7'
+install: pip install -r requirements.txt
 script: nosetests
+deploy:
+  provider: pypi
+  user: russgray
+  password:
+    secure: fe1f64HREQQkV2lJd2CbEuEJmjv5xMqlZLDDQMqCGHcUJq5DlsagKRRWTQyWc2i59iJO8q/6RoNuSsmlBTuSyrbzK+kDGrxZY1jf/8RGs3YsREC1tUveuKm4AtFBr/haeaKu57DNiEVPdzsDn9eq4FAo7xXKdGFjANvvrShS9Zs=
+  on:
+    tags: true
+    repo: russgray/betfairng
