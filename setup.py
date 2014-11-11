@@ -25,11 +25,11 @@ config = {
     'url': 'http://www.tagwager.com/',
     'download_url': 'http://www.tagwager.com/',
     'keywords': ['betfair', 'aping', 'tagwager'],
-    'install_requires': ['nose', 'requests'],
+    'install_requires': ['nose==1.3.4', 'requests==2.2.1'],
     'license': betfairng.__license__,
     'classifiers': [
         "Programming Language :: Python",
-        "Classifier: Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 2.7",
         "Development Status :: 4 - Beta",
         "Environment :: Other Environment",
         "Intended Audience :: Developers",
