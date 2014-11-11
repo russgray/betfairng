@@ -8,8 +8,8 @@ import os
 if os.environ.get('USER','') == 'vagrant':
     del os.link
 
-
-import betfairng
+with open(os.path.join(os.path.dirname(__file__), 'VERSION'), 'rb') as f:
+    version = f.read().decode('ascii').strip()
 
 with open('README.rst') as f:
     readme = f.read()
@@ -17,7 +17,7 @@ with open('README.rst') as f:
 config = {
     'name': 'betfairng',
     'packages': ['betfairng'],
-    'version': betfairng.__version__,
+    'version': version,
     'description': 'Client library for Betfair API Next-Generation',
     'long_description': readme,
     'author': 'Russell Gray',
@@ -25,8 +25,8 @@ config = {
     'url': 'http://www.tagwager.com/',
     'download_url': 'http://www.tagwager.com/',
     'keywords': ['betfair', 'aping', 'tagwager'],
-    'install_requires': ['nose==1.3.4', 'requests==2.2.1'],
-    'license': betfairng.__license__,
+    'install_requires': ['requests'],
+    'license': 'BSD 2-Clause',
     'classifiers': [
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
