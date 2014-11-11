@@ -26,7 +26,9 @@ betfairng also provides a backwards-compatibility layer so you can continue to u
 Installation
 ------------
 
-For now, grab from git.
+From pypi::
+
+    pip install betfairng
 
 
 Authentication
