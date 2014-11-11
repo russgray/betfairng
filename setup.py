@@ -24,7 +24,7 @@ config = {
     'author_email': 'russgray@gmail.com',
     'url': 'http://www.tagwager.com/',
     'download_url': 'http://www.tagwager.com/',
-    'keywords': ['betfair', 'aping', 'tagwager'],
+    'keywords': 'betfair aping api-ng tagwager',
     'install_requires': ['requests'],
     'license': 'BSD 2-Clause',
     'classifiers': [
