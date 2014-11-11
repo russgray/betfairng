@@ -5,6 +5,7 @@ install: pip install -r requirements.txt
 script: nosetests
 deploy:
   provider: pypi
+  distributions: "sdist"
   user: russgray
   password:
     secure: fe1f64HREQQkV2lJd2CbEuEJmjv5xMqlZLDDQMqCGHcUJq5DlsagKRRWTQyWc2i59iJO8q/6RoNuSsmlBTuSyrbzK+kDGrxZY1jf/8RGs3YsREC1tUveuKm4AtFBr/haeaKu57DNiEVPdzsDn9eq4FAo7xXKdGFjANvvrShS9Zs=
