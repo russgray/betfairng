@@ -7,6 +7,12 @@ from . import betfairng
 
 from datetime import datetime
 
+class LegacyApiError(Exception):
+    pass
+
+class LegacyOperationNotSupportedError(LegacyApiError):
+    pass
+
 class BFGlobalService(object):
     def __init__(self, app_key, debuglevel=0, cert=None):
         self.cert = cert
@@ -28,9 +34,7 @@ class BFGlobalService(object):
 
     def getEvents(self, session_token, event_parent_id):
         "this doesn't really work with api-ng!"
-        market_filter = dict(eventIds=[event_parent_id])
-        r = self.betting_api.list_events(session_token=session_token, filter=market_filter)
-        print r
+        raise LegacyOperationNotSupportedError()
 
 
 class BFExchangeService(object):

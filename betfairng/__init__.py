@@ -3,4 +3,4 @@ __author__ = 'Russell Gray'
 __copyright__ = 'Copyright 2014 Russell Gray'
 
 from .betfairng import authenticate, BettingApi, AccountsApi
-from .legacyv6 import BFGlobalService, BFExchangeService
+from .legacyv6 import BFGlobalService, BFExchangeService, LegacyApiError, LegacyOperationNotSupportedError

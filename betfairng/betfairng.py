@@ -153,6 +153,10 @@ if __name__ == "__main__":
     password = getpass('Enter password: ')
 
     r = authenticate((args.cert_file, args.key_file), args.username, password, args.verbose)
+
+    if args.verbose:
+        print r
+
     if not 'sessionToken' in r:
         print "Authentication failure"
         if args.verbose:

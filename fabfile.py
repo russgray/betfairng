@@ -6,3 +6,9 @@ def bump(part='minor'):
 
 def test():
     local('env/bin/nosetests --exe')
+
+def test_noisy():
+    local('env/bin/nosetests --nocapture -v --exe')
+
+def package():
+    local('env/bin/python setup.py sdist')
