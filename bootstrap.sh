@@ -18,7 +18,7 @@ if [ -d env ]; then
     rm -rf env
 fi
 
-virtualenv env
+virtualenv --always-copy env
 env/bin/pip install -r requirements.txt
 
 popd
