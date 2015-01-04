@@ -2,7 +2,7 @@
 
 # install core packages
 apt-get update
-apt-get install -y vim-nox python ruby1.9.3 python-dev python-virtualenv build-essential curl screen git
+apt-get install -y vim-nox python ruby1.9.3 python-dev python-virtualenv build-essential curl screen git fabric
 gem install travis -v 1.7.3 --no-rdoc --no-ri
 
 # grab rc files for niceness
@@ -18,7 +18,7 @@ if [ -d env ]; then
     rm -rf env
 fi
 
-virtualenv env
+virtualenv --always-copy env
 env/bin/pip install -r requirements.txt
 
 popd

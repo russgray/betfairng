@@ -40,27 +40,26 @@ class ApiNG(object):
         httplib.HTTPConnection.debuglevel = debuglevel
         self.subdomain = subdomain
         self.endpoint = 'https://{subdomain}.betfair.com/exchange/{api_type}/rest/v1.0'
-        self.session_token = session_token
         self.make_headers = partial(_make_headers, content_type='application/json',
             app_key=app_key)
         self.make_payload = partial(_make_payload, locale=locale)
-
+        self.session = requests.Session()
+        self.session.headers.update(self.make_headers(session_token=session_token))
 
     def send_request(self, op, api_type, session_token=None, **kwargs):
-        session_token = session_token or self.session_token
+        if session_token is not None:
+            self.session.headers.update(session_token=session_token)
         endpoint = self.endpoint.format(subdomain=self.subdomain, api_type=api_type)
 
         # some requests require a filter parameter, even if empty. It's harmless to always add
         if 'filter' not in kwargs or kwargs['filter'] is None:
             kwargs['filter'] = {}
 
-        headers = self.make_headers(session_token=session_token)
         payload = self.make_payload(**kwargs)
 
-        resp = requests.post(
+        resp = self.session.post(
                 '{}/{}/'.format(endpoint, op),
-                data=json.dumps(payload),
-                headers=headers)
+                data=json.dumps(payload))
 
         try:
             return resp.json()
